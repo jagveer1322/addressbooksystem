@@ -1,13 +1,13 @@
 package addressbook;
 
 public class Contact {
-	private final String firstName;
-	private final String lastName;
-	private final String city;
-	private final String state;
-	private final String zip;
-	private final String phoneNumber;
-	private final String email;
+	 String firstName;
+	 String lastName;
+	 String city;
+	 String state;
+	 String zip;
+	 String phoneNumber;
+     String email;
 
 	public Contact(String firstName, String lastName, String city, String state, String zip, String phoneNumber,
 			String email) {
