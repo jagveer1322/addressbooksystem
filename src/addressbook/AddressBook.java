@@ -1,6 +1,7 @@
 package addressbook;
 import java.util.*;
 
+
 public class AddressBook {
 	 HashMap<String, Contact> contacts;
 	 static Scanner scanner = new Scanner(System.in);;
@@ -58,8 +59,14 @@ public class AddressBook {
 			break;
 
 		default:
-			System.out.println("Invalid Option");
+			System.err.println("Invalid Option");
 		}
+	}
+	
+	public void deleteContact() {
+		System.out.println("Enter first name of person you want edit:");
+		String firstName = scanner.nextLine();
+		contacts.remove(firstName.toLowerCase());
 	}
 
 	public void addContact() {
