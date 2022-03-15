@@ -1,26 +1,51 @@
 package addressbook;
-import java.util.Scanner;
+
+import java.util.*;
 
 public class AddressBookMain {
+	private AddressBook[] addressBooks;
+	private int noOfAddressBooks;
+
+	public AddressBookMain() {
+		this.addressBooks = new AddressBook[5];
+		this.noOfAddressBooks = 0;
+	}
+
 	public static void main(String[] args) {
-		Scanner sc = new Scanner(System.in);
 		System.out.println("Welcome to Address Book Program");
-		AddressBook addressBook = new AddressBook();
-		System.out.println("Enter choice::::::::::::::\n" + "1-->add contact\n"+ "2--> edit contact\n"+ "3--> delete contact\n"+ "0--> exit");
-		int choice = sc.nextInt();
-		 switch (choice) {
-         case 1 : {
-             addressBook.addContact();
-           }
-         case 2 :{
-             addressBook.editContact();
-           }
-         case 3 : {
-             addressBook.deleteContact();
-           }
-         default : {
-        	 System.out.println("Enter Correct choice.");
-         }
-      }
+		AddressBookMain addressBookMain = new AddressBookMain();
+		addressBookMain.addAddressBook();
+		addressBookMain.addAddressBook();
+		Scanner scanner = new Scanner(System.in);
+		System.out.println("Enter ID of address book (-1 to exit):");
+		int bookChoice = Integer.parseInt(scanner.nextLine());
+		if (bookChoice == -1) {
+			return;
+		}
+		while (true) {
+			System.out.println("Enter 1. Add,2. Edit, 3. Delete, 4. Exit");
+			int actionChoice = Integer.parseInt(scanner.nextLine());
+			switch (actionChoice) {
+			case 1:
+				addressBookMain.addressBooks[bookChoice].addContact();
+				break;
+
+			case 2:
+				addressBookMain.addressBooks[bookChoice].editContact();
+				break;
+
+			case 3:
+				addressBookMain.addressBooks[bookChoice].deleteContact();
+				break;
+
+			case 4:
+				System.exit(0);
+				break;
+			}
+		}
+	}
+
+	public void addAddressBook() {
+		addressBooks[noOfAddressBooks++] = new AddressBook(noOfAddressBooks);
 	}
 }

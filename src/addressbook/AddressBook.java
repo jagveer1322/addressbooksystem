@@ -6,10 +6,12 @@ public class AddressBook {
 	private Contact[] contacts;
 	private static Scanner scanner = new Scanner(System.in);
 	private int noOfContacts;
+	private int addressBookId;
 
-	public AddressBook() {
+	public AddressBook(int id) {
 		this.contacts = new Contact[10];
 		this.noOfContacts = 0;
+		this.addressBookId = id;
 	}
 
 	public void editContact() {
@@ -22,7 +24,8 @@ public class AddressBook {
 				break;
 			}
 		}
-		System.out.println("Select Option:\n1. First Name\n2. Last Name\n 3. City\n4. State\n5. Zip\n6. Phone\n7. Email");
+		System.out
+				.println("Select Option:\n1. First Name\n2. Last Name\n 3. City\n4. State\n5. Zip\n6. Phone\n7. Email");
 		int choice = Integer.parseInt(scanner.nextLine());
 
 		switch (choice) {
